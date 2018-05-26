@@ -3,7 +3,8 @@
 This AWS Lambda function searches for all AWS Console created "launch-wizard" security groups and attempts to delete them. It returns a `json` object of all security groups successfully deleted by the function.
 
 # Customizations
-The script is designed to run only in one region, that can be customized to suit your region using the `globalVars['REGION_NAME']`. It also looks for the string `*launch-wizard*` to identify the SG's to be deleted. Change this to suit your needs
+The script is designed to run only in one region, that can be customized to suit *your region* using the `globalVars['REGION_NAME']`. It also looks for the string `*launch-wizard*` to identify the SG's to be deleted. Change this to suit your needs
+
 
 #### Output
 ```json
