@@ -10,7 +10,7 @@ from botocore.exceptions import ClientError
 globalVars  = {}
 globalVars['Owner']                 = "Miztiik"
 globalVars['Environment']           = "Test"
-globalVars['REGION_NAME']           = "ap-southeast-2"
+globalVars['REGION_NAME']           = "eu-central-1"
 globalVars['findNeedle']            = "*launch-wizard*"
 
 ec2 = boto3.client('ec2', region_name = globalVars['REGION_NAME'] )
@@ -20,7 +20,7 @@ filters = [
 ]
 
 def janitor_for_security_groups():
-    sg_deleted = { 'SecurityGroups': [] }
+    sg_deleted = { 'TotalSecurityGroupsDeleted':'','SecurityGroups': [] }
     sgs = ec2.describe_security_groups(Filters=filters).get('SecurityGroups')
     for sg in sgs:
         logging.info("Attempting to delete security group: {0}, ID: {1}".format(sg.get('GroupName'), sg.get('GroupId') ))
@@ -34,6 +34,12 @@ def janitor_for_security_groups():
             print(str(e.response))
             logging.error('Unable to delete Security Group with id: {0}'.format(sg.get('GroupId')) )
             logging.error('ERROR: {0}'.format( str(e.response)) )
+
+    # Get the count of security groups deleted to provide a descriptive message
+    if sg_deleted['SecurityGroups']:
+        sg_deleted['TotalSecurityGroupsDeleted'] = len( sg_deleted['SecurityGroups'] )
+    else:
+        sg_deleted['TotalSecurityGroupsDeleted'] = 0
 
     return sg_deleted
 
