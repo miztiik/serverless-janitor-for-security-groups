@@ -8,24 +8,25 @@ The script is designed to run only in one region, that can be customized to suit
 #### Output
 ```json
 {
+  "TotalSecurityGroupsDeleted": 3,
   "SecurityGroups": [
     {
-      "GroupName": "launch-wizard-2",
-      "VpcId": "vpc-6ca51a08",
-      "GroupId": "sg-2a0b3a53",
-      "Description": "launch-wizard-2 created 2018-05-23T23:09:40.338+02:00"
+      "GroupName": "*launch-wizard*",
+      "VpcId": "vpc-0cccae67",
+      "GroupId": "sg-02fe440aebe0ed0dc",
+      "Description": "*launch-wizard*"
     },
     {
       "GroupName": "launch-wizard-1",
-      "VpcId": "vpc-6ca51a08",
-      "GroupId": "sg-cb0b3ab2",
-      "Description": "launch-wizard-1 created 2018-05-23T23:09:11.975+02:00"
+      "VpcId": "vpc-0cccae67",
+      "GroupId": "sg-04646fca3f596a90c",
+      "Description": "launch-wizard-1"
     },
     {
-      "GroupName": "launch-wizard-3",
-      "VpcId": "vpc-6ca51a08",
-      "GroupId": "sg-f602338f",
-      "Description": "launch-wizard-3 created 2018-05-23T23:09:53.464+02:00"
+      "GroupName": "launch-wizard-2",
+      "VpcId": "vpc-0cccae67",
+      "GroupId": "sg-09a4f65aab8c72251",
+      "Description": "launch-wizard-2"
     }
   ]
 }
